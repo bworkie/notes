@@ -1,0 +1,35 @@
+===== tar ====
+tar cvzf archive_name.tar.gz dirname/  - to tar and gzip a file
+tar cvfj archive_name.tar.bz2 dirname/  - to tar and bz2 a file
+==> bzip2 takes more time to compress and decompress but archive file size is smaller
+tar xvfz archive_name.tar.gz  - to tar and gzip a file
+tar xvfj archive_name.tar.bz2  - to tar and gzip a file
+
+==== view archive file without extracting
+tar tvfz archive_name.tar.gz
+tar tvfj archive_name.tar.bz2
+
+==== extract a single file  from tar, tar.gz or tar.bz2 file
+tar xvfz archive_file.tar.gz /path/to/file
+
+==== extract a single dir or multiple dir fomr archive
+tar xvfj archive_file.tar.bz2 /path/to/dir1/ /path/to/dir2/
+
+==== extract group of files using wildcards
+tar xvf archive_file.tar --wildcards '*.pl'
+
+=== Adding a file or dir to an existing archive
+tar rvf archive_name.tar newfile (or newdir/)
+
+==> can not add file or dir to a compressed archive
+
+=== Verify files available in tar
+tar cvfW file_name.tar dir/
+
+=== Finding diff b/n archive file and file system
+tar dfz file_name.tgz
+tar dfj file_name.tar.bz2
+
+=== Estimate the tar archive size 
+tar -czf - /dir/to/archive/ | wc -c
+tar -cjf - /dir/to/archive/ | wc -c
