@@ -33,3 +33,10 @@ tar dfj file_name.tar.bz2
 === Estimate the tar archive size 
 tar -czf - /dir/to/archive/ | wc -c
 tar -cjf - /dir/to/archive/ | wc -c
+
+=== To change file extensions from .txt to .py
+rename 's/\.txt$/\.py/' *.txt
+
+
+=====  To list contents of a directory in tree format ===
+tree <path> -L <depth>

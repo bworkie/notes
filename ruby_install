@@ -1,0 +1,24 @@
+sudo apt-get update -y
+git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
+echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc 
+source .bashrc 
+echo 'eval "$(rbenv init -)"' >> ~/.bashrc 
+source ~/.bashrc 
+git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
+echo 'export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"' >> ~/.bashrc 
+source ~/.bashrc 
+rbenv install -v 2.2.2
+rbenv global 2.2.2
+gem install bundler
+gem install rails -v 4.2.3
+rbenv rehash
+sudo apt-get install -y software-properties-common python-software-properties
+sudo add-apt-repository ppa:chris-lea/node.js
+sudo apt-get install -y nodejs
+sudo apt-get install -y bzip2
+export PHANTOM_JS="phantomjs-1.9.8-linux-x86_64"
+cd /tmp
+curl -L https://bitbucket.org/ariya/phantomjs/downloads/$PHANTOM_JS.tar.bz2 | tar xvjf -
+sudo mv $PHANTOM_JS /usr/local/share
+sudo ln -sf /usr/local/share/$PHANTOM_JS/bin/phantomjs /usr/local/bin
+phantomjs -v

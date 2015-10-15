@@ -1,0 +1,107 @@
+in python, can use the assert command to check results.
+
+eg
+
+sub test():
+	assert nextday(2013,1,1) == (2013,1,2)
+	assert daysBetweenDates(2012,1,1, 2013,1,1) = 366
+	Print "Test passed"
+
+If the assertion is false, then python will fail and exit.
+
+=============================================================
+In Python, Lists are mutable but strings are not, 
+meaning: elements of strings can't be changed but for lists we do.
+- Also if a list is copied and then one of its elements are changed, then the copy will also change.
+
+eg.
+
+p = ['H', 'E', 'L', 'L', 'O']
+q = p
+p[0] = 'Y'
+print q
+    >>> will print  ['Y', 'E', 'L', 'L', 'O']
+
+This is called alliasing
+====================================================================
+
+Lists:
+
+list1 = [0, 1, 2]
+list1.append(3)
+print list1
+	>> [0, 1, 1, 3]
+
+list2 = ['a', 'b']
+list3 = list1 + list2
+print list3
+	>> [0, 1, 2, 3, 'a', 'b']
+
+---------------------------------------------
+>>> p  = [0, 1]
+>>> q = [2, 3]
+>>> p.append(q)
+>>> len(p)
+3
+>>> print p
+[0, 1, [2, 3]]
+>>> q[1] = 5
+>>> print p
+[0, 1, [2, 5]]
+
+looping through list
+>>> for i in q:
+...     print i
+... 
+2
+5
+
+index prints the first position of an element in list
+>>> x = [1, 2, 3, 3, 3]
+>>> print x.index(3)
+2
+
+if the element is not in the list, it will print an error.
+
+## to check if an element is in the list.
+>>> print 3 in x
+True
+>>> print 4 in x
+False
+>>> print 4 not in x
+True
+
+
+---------------------------------------------------
+
+#range and len
+>>> i = ['Betre', 'Sofi', 'Kalu', 'Etse', 'Biruk']
+>>> for x in range(len(i)):
+...     print x, i[x]
+... 
+0 Betre
+1 Sofi
+2 Kalu
+3 Etse
+4 Biruk
+---------------------------------------------------
+# Dictionary data type
+>>> a = dict([('Betre', 1980), ('Sofi', 1976), ('Biruk', 2012)])
+>>> print a
+{'Sofi': 1976, 'Biruk': 2012, 'Betre': 1980}
+>>> del a['Biruk']
+>>> print a
+{'Sofi': 1976, 'Betre': 1980}
+>>> a['Betre']
+1980
+>>> a['Kalu'] = 2009
+>>> print a
+{'Sofi': 1976, 'Kalu': 2009, 'Betre': 1980}
+>>> a.keys()
+['Sofi', 'Kalu', 'Betre']
+>>> 'Sofi' in a
+True
+
+>>> {x:x**2 for x in (2, 4, 6)}
+{2: 4, 4: 16, 6: 36}
+--------------------------------------------------------

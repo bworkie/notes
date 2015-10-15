@@ -1,0 +1,65 @@
+git log = gives list of all the commits
+git diff <comit id1> <comit id2> = to file the difference between b/n two commits.
+git diff (without any arguement)  = will diff work area and staging area files.
+git diff --staged = will diff staging area vs repository, good to check before commit
+git checkout <commit id> =  to check out all files from previous commit
+git clone <address to clone> = checks out entire repository of all versions.
+git init = to start a new git suppository. Can run in an existing directory and can run offline.
+git status = to show which files changed since last comit.
+git add <filename> = to add file to staging area before commiting
+git rm --cached <file>..." to unstage
+git commit = to commit a repository and add comment (type [feat, fix, test ..], subject, body)
+git reset --hard = will discard any changes in work area and stagging area *** be vary careful.
+
+
+### Branching and merging  - use when working on new feature or experimenting.
+get branch (no arguement) = will return the current branch
+get branch <new_branch> = will create a new branch 
+get checkout -b <new_branch> = will create a new branch and check it out
+
+## to Merge a branch to a master, first checkout the master, then 
+git merge master <branch>
+
+## Running git log after merging will show all the commits from both branches and sequenced with time of creation.
+## So if trying to diff once commit in the log with previous one may not work as it may not be the parent.
+## to to diff a commit against its parent without knowing the id of the parent
+git show <commit id>
+
+## After merging, can delete the branch as it is no longer needed 
+git branch -d <branch> ## This only deletes the label, not the commits in the branch
+
+## if conflict occurs during merging then, manually resolve conflict and then
+## add the new version to staging area (git add) and (git status) and commit 
+
+
+## to see list of branches and comits in log 
+git log --graph --oneline <master> <branch1> ...
+
+
+=====================================================
+============== GITHUB ===============================
+=====================================================
+
+To start github repository, first create the repository at github, then
+git remote add origin <path to github git file>
+ex: git remote add origin https://github.com/bworkie/my_dot_files.git
+then: git push origin master
+
+==== If new file is added at github, we can pull lastest master using
+git pull origin master
+
+
+===== FORKING is like cloning withing github
+need to fork to get copy of someone else's repository before cloning.
+
+=== can add a collaborator by going to 
+setting > collaborator and enter github username.
+
+git fetch origin - will get the master copy from git hub
+then git merge master orgin/master - will merge local master with github master
+
+git pull origin master - is same as doing the above two commands.
+
+
+====== to remove the origin ===  
+git remote rm origin
