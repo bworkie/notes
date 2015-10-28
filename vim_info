@@ -197,7 +197,7 @@ Hello World
 > ysiw<em> to emphasize hello
  <em>Hello</em>  World
 
-> to do linewise Vision mode editing, Type V, then 
+> to do linewise Visual mode editing, Type V, then 
 > S<p class="important"> will result in
 <p class="important">
 <em>Hello</em>  World

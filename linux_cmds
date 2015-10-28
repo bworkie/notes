@@ -40,3 +40,90 @@ rename 's/\.txt$/\.py/' *.txt
 
 =====  To list contents of a directory in tree format ===
 tree <path> -L <depth>
+
+
+===== grep ====
+
+grep "pattern" <file_name or pattern>
+    -r : recurrsive search in directory
+    -v : inverse search - find not matching
+    -A 4 : include 4 lines after the match
+    -B 4 : include 4 lines before the match
+    -C 4 : include 4 lines before and after the match
+    -c : return only the count of matches
+grep -l this demo* - will return the files that contain the text "this"
+grep -ril john /dir : will recurrsively look for john in case ins way and return all files 
+grep -c "^$" <file> : returns count of empty lines
+grep "...x' <file> : retun a word that has 4 char with last one being x
+    - . means 1 char
+      * means 0 or more occurence of the preceeding char
+
+==== Find Command ====
+find /etc -name "*name" : find all files in etc dir with name in filename
+find . -mtime +60 : find files in current dir that are not modified in 60 days
+find . -mtime -2 : find files in current dir that are modified in 2 days
+find / -type f -name *.tar.gz -size +100M -exec ls -l {} \; : find files in archive with size >100M and exec list them
+
+=> the fillowin command find finds fiels not modified in the last 60 days under /home/jsmith dir and creates an archive files under /tmp in format of ddmmyyyy_archive.tar
+find /home/jsmith -type f -mtime +60 | xargs tar -cvf /tmp/`date '+%d%m%Y'_archive.tar`
+
+>>find the passwd file at root dir and one level down
+sudo find / -maxdepth 2 -name passwd 
+
+>>find files containing "linux" in current dir and one level down.
+find . -maxdepth 2 -name "linux*" 
+
+>> find the password file between sub-dir level 2 and 4
+sudo find / -mindepth 3 -maxdepth 5 -name passwd
+
+>> file all files in current dir with group permission.
+find . -maxdepth 1 -perm -g=r -type f -exec ls -l {} \;
+
+>> file all files in current dir with only group permission.
+find . -maxdepth 1 -perm g=r -type f -exec ls -l {} \;
+
+>> find the top 5 largest files in current dir and subdirs
+find . -type f -exec ls -s {} \; | sort -n -r | head -5
+
+>> find the top 5 smalles files, also sort is changed to descending order
+find . -type f -exec ls -s {} \; | sort -n  | head -5
+
+>> In above ex, to exclude the empty files, use the following.
+find . -not -empty -type f -exec ls -s {} \; | sort -n  | head -5
+
+>> -type switch specifies file type (f for file, d for dir, s for socket files
+
+>> find all files modified after a specified file
+find -newer <filename>
+
+>> find files biger thatn 100BM in home dir
+>> find ~ -size +100M
+
+>> find files that are accessed in last 1 hour
+find -amin 60
+
+>> find files that are updated in last 1 day
+find / mtime 1
+
+>> replace all spances in *.mp3 files with _
+find . -type f -iname “*.mp3″ -exec rename “s/ /_/g” {} \;
+
+
+==== Suppress std out and std err ====
+
+>> suppress std out and only look at err outputs
+./shell-script.sh > /dev/null
+
+>> suppress std err and look at only std out
+./shell-script.sh 2> /dev/null
+
+>> join command combines lines from two files based on a commaon field
+join file1 file2
+
+>> convert a file to all upper-case
+tr a-z A-Z < filename.txt
+
+
+==== Xargs Command ====
+
+

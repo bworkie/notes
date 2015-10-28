@@ -2,6 +2,7 @@ git log = gives list of all the commits
 git diff <comit id1> <comit id2> = to file the difference between b/n two commits.
 git diff (without any arguement)  = will diff work area and staging area files.
 git diff --staged = will diff staging area vs repository, good to check before commit
+git diff HEAD = will diff working area vs repositor
 git checkout <commit id> =  to check out all files from previous commit
 git clone <address to clone> = checks out entire repository of all versions.
 git init = to start a new git suppository. Can run in an existing directory and can run offline.
@@ -9,13 +10,16 @@ git status = to show which files changed since last comit.
 git add <filename> = to add file to staging area before commiting
 git rm --cached <file>..." to unstage
 git commit = to commit a repository and add comment (type [feat, fix, test ..], subject, body)
+git commit -m <comment> = to commit and add the comment on the fly
+git checkout -- <file>..." to discard changes in working directory
+git revert HEAD = will revert the last commit
 git reset --hard = will discard any changes in work area and stagging area *** be vary careful.
 
 
 ### Branching and merging  - use when working on new feature or experimenting.
-get branch (no arguement) = will return the current branch
-get branch <new_branch> = will create a new branch 
-get checkout -b <new_branch> = will create a new branch and check it out
+git branch (no arguement) = will return the current branch
+git branch <new_branch> = will create a new branch 
+git checkout -b <new_branch> = will create a new branch and check it out
 
 ## to Merge a branch to a master, first checkout the master, then 
 git merge master <branch>
